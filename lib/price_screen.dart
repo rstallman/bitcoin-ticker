@@ -70,6 +70,7 @@ class _PriceScreenState extends State<PriceScreen> {
 
     for (String crypto in cryptoList) {
       var exchangeRateData = await coinData.getExchangeRate(crypto, currency);
+      if (exchangeRateData == null) return;
       double rate = exchangeRateData['rate'];
       exchangeRates.add('1 $crypto = ${rate.toStringAsFixed(2)} $currency');
     }
