@@ -1,9 +1,9 @@
+import 'dart:io' show Platform;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:helloworld/components/coin_card.dart';
 
 import 'coin_data.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'dart:io' show Platform;
 
 class PriceScreen extends StatefulWidget {
   @override
@@ -68,7 +68,7 @@ class _PriceScreenState extends State<PriceScreen> {
     var coinData = CoinData();
     List<String> exchangeRates = [];
 
-    for (String crypto in cryptoList){
+    for (String crypto in cryptoList) {
       var exchangeRateData = await coinData.getExchangeRate(crypto, currency);
       double rate = exchangeRateData['rate'];
       exchangeRates.add('1 $crypto = ${rate.toStringAsFixed(2)} $currency');

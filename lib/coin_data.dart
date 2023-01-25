@@ -37,7 +37,6 @@ const coinApiHost = 'rest.coinapi.io';
 const coinApiPath = '/v1/exchangerate';
 
 class CoinData {
-
   Future<dynamic> getExchangeRate(String crypto, String currency) async {
     Uri url = Uri.https(coinApiHost, '$coinApiPath/$crypto/$currency', {
       'apikey': apiKey,
@@ -45,6 +44,4 @@ class CoinData {
 
     return await NetworkHelper(url).getData();
   }
-
-
 }

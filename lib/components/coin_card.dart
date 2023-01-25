@@ -1,16 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class CoinCard extends  StatelessWidget {
-
+class CoinCard extends StatelessWidget {
   final String exchangeRate;
 
   CoinCard(this.exchangeRate);
 
   @override
   Widget build(BuildContext context) {
-
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.fromLTRB(18.0, 18.0, 18.0, 0),
       child: Card(
         color: Colors.lightBlueAccent,
@@ -32,5 +30,4 @@ class CoinCard extends  StatelessWidget {
       ),
     );
   }
-
 }
