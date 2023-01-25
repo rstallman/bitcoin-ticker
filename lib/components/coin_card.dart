@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CoinCard extends StatelessWidget {
   final String exchangeRate;
 
-  CoinCard(this.exchangeRate);
+  const CoinCard(this.exchangeRate, {super.key});
 
   @override
   Widget build(BuildContext context) {

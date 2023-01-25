@@ -1,10 +1,13 @@
 import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../components/coin_picker.dart';
 import '../components/coin_card.dart';
 import '../services/coin_data.dart';
 
 class PriceScreen extends StatefulWidget {
+  const PriceScreen({super.key});
+
   @override
   _PriceScreenState createState() => _PriceScreenState();
 }
@@ -13,24 +16,6 @@ class _PriceScreenState extends State<PriceScreen> {
   String selectedCurrency = 'USD';
 
   List<String> rates = cryptoList.map((c) => '1 $c = ? USD').toList();
-
-  List<Widget> getChildrenWidgets() {
-    List<Widget> res = [];
-
-    for (String rate in rates) {
-      res.add(CoinCard(rate));
-    }
-
-    res.add(Container(
-      height: 150.0,
-      alignment: Alignment.center,
-      padding: const EdgeInsets.only(bottom: 30.0),
-      color: Colors.lightBlue,
-      child: Platform.isIOS ? iosPicker() : androidDropDown(),
-    ));
-
-    return res;
-  }
 
   DropdownButton<String> androidDropDown() {
     return DropdownButton<String>(
@@ -94,7 +79,8 @@ class _PriceScreenState extends State<PriceScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: getChildrenWidgets(),
+        children: rates.map((e) => CoinCard(e) as Widget).toList()
+          ..add(CoinPicker(Platform.isIOS ? iosPicker() : androidDropDown())),
       ),
     );
   }
