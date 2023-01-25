@@ -1,4 +1,4 @@
-import 'package:helloworld/services/networking.dart';
+import 'networking.dart';
 
 const List<String> currenciesList = [
   'AUD',
